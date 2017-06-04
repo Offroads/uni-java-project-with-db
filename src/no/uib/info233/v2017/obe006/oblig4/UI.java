@@ -627,6 +627,11 @@ public class UI {
 		mntmNewMenuItem_3.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				if (gamemaster == null) {
+					JOptionPane.showMessageDialog(frame, "There is no game to save", "Error",
+							JOptionPane.ERROR_MESSAGE);
+					return;
+				}
 				String name = JOptionPane.showInputDialog(null,
 						"What name do you want to give the game? You need this when you want to load it.", "Game1");
 				gamemaster.saveGame(name);
