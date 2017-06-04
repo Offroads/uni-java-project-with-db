@@ -592,6 +592,16 @@ public class UI {
 		mntmNewMenuItem_1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				if (gamemaster == null) {
+					String name = JOptionPane.showInputDialog(null, "Choose a name first", "name");
+					if (name != null && name.length() >= 1) {
+						gamemaster = new Gamemaster(name);
+					} else {
+						JOptionPane.showMessageDialog(frame, "You must choose a name", "Error",
+								JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+				}
 				makeGameVsAI();
 				String name = JOptionPane.showInputDialog(null,
 						"What name do you want to give the game? You need this when you want to load it.", "Game1");
