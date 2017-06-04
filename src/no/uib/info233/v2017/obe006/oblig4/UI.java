@@ -610,11 +610,13 @@ public class UI {
 		mntmNewMenuItem_2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				if (gamemaster.getConnector().conn != null) {
-					try {
-						gamemaster.getConnector().conn.close();
-					} catch (SQLException e) {
-						e.printStackTrace();
+				if (gamemaster != null) {
+					if (gamemaster.getConnector().conn != null) {
+						try {
+							gamemaster.getConnector().conn.close();
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
 					}
 				}
 				System.exit(0);
