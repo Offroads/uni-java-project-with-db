@@ -2,8 +2,6 @@
 
 You need a database with the following.
 
-Database name: oblig4
-
 Table: saved_games
 game_id:VARCHAR(128)
 player_1:VARCHAR(128)
