@@ -21,7 +21,6 @@ public class FileReader {
 		BufferedReader br = new BufferedReader(ipsr);
 		String line;
 		while ((line = br.readLine()) != null) {
-			System.out.println(line);
 			string = line;
 		}
 		br.close();
