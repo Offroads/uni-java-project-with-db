@@ -54,3 +54,6 @@ Table: ranking
 player: VARCHAR(128)
 
 score: FLOAT
+
+Also make two txt files containing the username and pw for your db. 
+C:\Users\user\Documents\username.txt
