@@ -1,10 +1,12 @@
 package no.uib.info233.v2017.obe006.oblig4;
 
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 import no.uib.info233.v2017.obe006.oblig4.sql.Connector;
+import no.uib.info233.v2017.obe006.oblig4.utils.FileReader;
 
 /**
  * The gamemaster assigns two players to play against each other and let the
@@ -48,7 +50,16 @@ public class Gamemaster {
 	 * Constructor without parameter, for testing purposes
 	 */
 	public Gamemaster() {
-		connector = new Connector();
+		FileReader filereader = new FileReader();
+		String userName = null;
+		String passWord = null;
+		try {
+			userName = filereader.readFile("C:\\Users\\rober\\Documents\\username.txt"); //change rober to your username
+			passWord = filereader.readFile("C:\\Users\\rober\\Documents\\pw.txt");//change rober to your username
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		connector = new Connector(userName, passWord);
 		playerMe = new HumanPlayer("testing");
 		opponent = new OpponentPlayer("opponent");
 	}
@@ -57,7 +68,16 @@ public class Gamemaster {
 	 * constructor for gamemaster
 	 */
 	public Gamemaster(String me) {
-		connector = new Connector();
+		FileReader filereader = new FileReader();
+		String userName = null;
+		String passWord = null;
+		try {
+			userName = filereader.readFile("C:\\Users\\rober\\Documents\\username.txt");//change rober to your username
+			passWord = filereader.readFile("C:\\Users\\rober\\Documents\\pw.txt");//change rober to your username
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		connector = new Connector(userName, passWord);
 		playerMe = new HumanPlayer(me);
 		opponent = new OpponentPlayer("opponent");
 	}

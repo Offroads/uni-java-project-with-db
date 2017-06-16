@@ -18,8 +18,8 @@ public class Connector {
 	static final String HOST = "db.no";
 	static final String DBNAME = "name_of_db";
 	static final int PORT = 3306;
-	static final String USRNM = "user";
-	static final String URSPW = "password";
+	String USRNM = "user";
+	String USRPW = "password";
 	public Connection conn = null;
 	Statement stmt = null;
 	PreparedStatement preparedStatement = null;
@@ -28,7 +28,9 @@ public class Connector {
 	/**
 	 * Establishes connection with database
 	 */
-	public Connector() {
+	public Connector(String uname, String pw) {
+		USRNM = uname;
+		USRPW = pw;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		}
@@ -42,7 +44,7 @@ public class Connector {
 
 		conn = null;
 		try {
-			conn = DriverManager.getConnection(mySqlUrl, USRNM, URSPW);
+			conn = DriverManager.getConnection(mySqlUrl, USRNM, USRPW);
 		} catch (SQLException e) {
 			System.out.println("Error in connection, check console.");
 			e.printStackTrace();
